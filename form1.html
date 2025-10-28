@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Class Registration Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f9fb;
+      --card: #fff;
+      --border: #e5e5e5;
+      --accent: #000;
+      --muted: #777;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px;
+      color: #111;
+    }
+    .container {
+      width: 100%;
+      max-width: 480px;
+    }
+    form {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      padding: 28px;
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+    p.subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .two {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 13.5px;
+      margin-bottom: 6px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fafafa;
+      font-size: 14px;
+      outline: none;
+    }
+    input::placeholder {
+      color: #aaa;
+    }
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 14px 0 6px;
+    }
+    .note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .grid-days {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 10px;
+      margin-bottom: 14px;
+    }
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+    }
+    .check input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+    }
+    .terms {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+    button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    @media (max-width: 480px) {
+      body { padding: 20px; }
+      form { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form onsubmit="event.preventDefault(); alert('Class registration submitted (demo).');">
+      <h1>Class Registration Form</h1>
+      <p class="subtitle">Please fill out the form below to register for our class</p>
+
+      <!-- Name -->
+      <div class="two">
+        <div style="flex:1;">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+        </div>
+        <div style="flex:1;">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+        </div>
+      </div>
+
+      <!-- Email & Phone -->
+      <div class="two">
+        <div style="flex:1;">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Email Address" required>
+        </div>
+        <div style="flex:1;">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+        </div>
+      </div>
+
+      <!-- Class Level -->
+      <div class="section-title">Class Level</div>
+      <select id="classLevel" name="classLevel" required>
+        <option value="">Select your class level</option>
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+      <p class="note">Please choose the appropriate level for your experience</p>
+
+      <!-- Class Days -->
+      <div class="section-title">Class Days</div>
+      <p class="note">Please select the days you are available to attend class</p>
+      <div class="grid-days">
+        <label class="check"><input type="checkbox" name="day" value="monday"> Monday</label>
+        <label class="check"><input type="checkbox" name="day" value="tuesday"> Tuesday</label>
+        <label class="check"><input type="checkbox" name="day" value="wednesday"> Wednesday</label>
+        <label class="check"><input type="checkbox" name="day" value="thursday"> Thursday</label>
+        <label class="check"><input type="checkbox" name="day" value="friday"> Friday</label>
+        <label class="check"><input type="checkbox" name="day" value="saturday"> Saturday</label>
+      </div>
+
+      <!-- Terms -->
+      <label class="terms">
+        <input type="checkbox" required>
+        <span>I agree to the terms and conditions of the class registration.</span>
+      </label>
+
+      <button type="submit">Register Now!</button>
+    </form>
+  </div>
+</body>
+</html>

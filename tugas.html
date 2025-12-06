@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biodata Dinamis</title>
+
+    <style>
+        body {
+            font-family: Poppins, sans-serif;
+            background: linear-gradient(135deg, #8EC5FC, #E0C3FC);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            width: 350px;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #4A4A4A;
+        }
+
+        #foto {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid #9B84EE;
+        }
+
+        p {
+            font-size: 15px;
+            margin: 4px 0;
+        }
+
+        .btn-box {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            color: white;
+            transition: 0.25s;
+        }
+
+        .btn-blue { background: #6A73FF; }
+        .btn-green { background: #39C46A; }
+        .btn-purple { background: #A066F8; }
+        .btn-orange { background: #FF9F45; }
+        .btn-red { background: #FF5959; }
+        .btn-dark { background: #444; }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card" id="biodataCard">
+        <h2>Biodata Mahasiswa</h2>
+
+        <!-- FOTO KUCING -->
+        <img id="foto" src="https://exampllee.vercel.app/assets/F11.jpg" alt="Foto Profil Kucing">
+
+        <p id="nama">Nama: Syifa Fauzia Nurfahira</p>
+        <p id="nim">NIM: 0110125067</p>
+        <p id="prodi">Program Studi: Sistem Informasi</p>
+
+        <div class="btn-box">
+            <button class="btn-blue" onclick="ubahNama()">Ubah Nama</button>
+            <button class="btn-green" onclick="ubahNIM()">Ubah NIM</button>
+            <button class="btn-purple" onclick="ubahProdi()">Ubah Prodi</button>
+            <button class="btn-orange" onclick="ubahFoto()">Ganti Foto</button>
+            <button class="btn-red" onclick="sembunyikan()">Sembunyikan</button>
+            <button class="btn-dark" onclick="tampilkan()">Tampilkan</button>
+        </div>
+
+    </div>
+
+<script>
+    function ubahNama() {
+        let baru = prompt("Masukkan nama baru:");
+        if (baru) document.getElementById("nama").innerHTML = "Nama: " + baru;
+    }
+
+    function ubahNIM() {
+        let baru = prompt("Masukkan NIM baru:");
+        if (baru) document.getElementById("nim").innerHTML = "NIM: " + baru;
+    }
+
+    function ubahProdi() {
+        let baru = prompt("Masukkan Program Studi baru:");
+        if (baru) document.getElementById("prodi").innerHTML = "Program Studi: " + baru;
+    }
+
+    function ubahFoto() {
+        let link = prompt("Masukkan link foto (URL):");
+        if (link) document.getElementById("foto").setAttribute("src", link);
+    }
+
+    function sembunyikan() {
+        document.getElementById("biodataCard").style.display = "none";
+    }
+
+    function tampilkan() {
+        document.getElementById("biodataCard").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
